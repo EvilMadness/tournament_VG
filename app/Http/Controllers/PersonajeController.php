@@ -13,7 +13,9 @@ class PersonajeController extends Controller
      */
     public function index()
     {
-        //
+        #$personajes = Escuela::all();
+        $title = "Personajes";
+        return view('personaje.index', compact('personajes', 'title'));
     }
 
     /**
