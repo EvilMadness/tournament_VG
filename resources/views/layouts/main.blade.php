@@ -12,15 +12,11 @@
     <title>@yield('title')</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- CSS Files -->
-    <link rel="stylesheet" href="{{asset('./assets/css/now-ui-kit.css?v=1.2.0')}}">
-    <link rel="stylesheet" href="{{asset('./assets/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('./assets/demo/demo.css')}}">
-
-    <link href="{{asset('demo/demo.css')}}" rel="stylesheet" />
-    <script src="{{asset('js/core/jquery.min.js')}}" type="text/javascript"></script>
+    <link href="{{asset('./assets/css/now-ui-kit.css?v=1.2.0')}}" rel="stylesheet" />
+    <link href="{{asset('./assets/css/bootstrap.min.css')}}" rel="stylesheet" />
 
     <script src="{{asset('./assets/js/sweetalert2.all.js')}}" type="text/javascript"></script>
     <script src="{{asset('./assets/js/sweetalert2.js')}}" type="text/javascript"></script>
@@ -28,18 +24,19 @@
     <script src="{{asset('./assets/js/general_methods.js')}}" type="text/javascript"></script>
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 </head>
-<body class="@yield('type')">
-<nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
+<body class="@yield('type')" >
+<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg bg-success" color-on-scroll="100" id="sectionsNav">
     <div class="container">
         <div class="navbar-translate">
-            <a class="navbar-brand" href="/">Inicio</a>
-            <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-bar top-bar"></span>
-                <span class="navbar-toggler-bar middle-bar"></span>
-                <span class="navbar-toggler-bar bottom-bar"></span>
+            <a class="navbar-brand" href="/">
+                Inicio </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
         </div>
-        <div class="collapse navbar-collapse justify-content-end" id="navigation">
+        <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav ml-auto">
                 @if (Auth::guest())
                     <li class="dropdown nav-item">
@@ -181,23 +178,38 @@
 <!--  End Modal -->
 <footer class="footer" data-background-color="black">
     <div class="container">
-        <nav>
+        <nav class="float-left">
             <ul>
-                <li>
+                <a class="sharing-area" href="https://www.facebook.com/cuvalles" target="_blank">
+                    <button class="btn btn-fab btn-round btn-facebook">
+                        <i class="fa fa-facebook"> </i>
+                    </button>
+                </a>
+                <a class="sharing-area" href="https://twitter.com/MnDMzTR" target="_blank">
+                    <button class="btn btn-fab btn-round btn-twitter">
+                        <i class="fa fa-twitter"></i>
+                    </button>
+                </a>
+                <!--<li>
                     <a href="https://www.creative-tim.com">
                         Creative Tim
                     </a>
                 </li>
                 <li>
-                    <a href="http://presentation.creative-tim.com">
+                    <a href="https://presentation.creative-tim.com">
                         About Us
                     </a>
                 </li>
                 <li>
-                    <a href="http://blog.creative-tim.com">
+                    <a href="https://blog.creative-tim.com">
                         Blog
                     </a>
                 </li>
+                <li>
+                    <a href="https://www.creative-tim.com/license">
+                        Licenses
+                    </a>
+                </li>-->
             </ul>
         </nav>
         <div class="copyright float-right">
