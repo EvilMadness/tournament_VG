@@ -59,8 +59,8 @@
                 </div>
                 @endif
                 @endisset
-                <a href='{{ route('carrera.create') }}'>
-                <button type="button" class="btn btn-primary btn-round" data-toggle="tooltip" data-placement="top" title="Añadir un justificante"><i class="now-ui-icons ui-1_simple-add"></i> Añadir</button>
+                <a href='{{ route('concursante.create') }}'>
+                <button type="button" class="btn btn-primary btn-round" data-toggle="tooltip" data-placement="top" title="Añadir nuevo concursante"><i class="now-ui-icons ui-1_simple-add"></i> Registrar</button>
                 </a>
             </div>
             {{-- cierre de divs--}}

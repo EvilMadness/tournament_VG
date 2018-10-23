@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Personaje;
 use Illuminate\Http\Request;
 
 class PersonajeController extends Controller
@@ -13,7 +14,7 @@ class PersonajeController extends Controller
      */
     public function index()
     {
-        #$personajes = Escuela::all();
+        $personajes = Personaje::all();
         $title = "Personajes";
         return view('personaje.index', compact('personajes', 'title'));
     }

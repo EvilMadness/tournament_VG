@@ -15,13 +15,63 @@
     <div class="container">
         <div class="section text-center">
             <div class="col-md-8 ml-auto mr-auto">
-                <form id="form" class="form-horizontal" name="form_busqueda" action="{{route('carrera.store')}}" method="post" entype="application/x-www-form-urlencoded">
-
+                <form id="form" class="form-horizontal" name="form_busqueda" action="{{route('concursante.store')}}" method="post" entype="application/x-www-form-urlencoded">
                     <div class="row text-left">
-                        <div class="col-sm-12">
+                        <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="nombre">Nombre de la carrera</label>
-                                <input type="text" class="form-control" id="nombre" placeholder="Escribe el nombre de la carrera">
+                                <label for="nombre">Nombre(s)</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Escribe tu nombre">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="apaterno">Apellido Paterno</label>
+                                <input type="text" class="form-control" id="apaterno" placeholder="Escribe tu apellido paterno">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="amaterno">Apellido Materno</label>
+                                <input type="text" class="form-control" id="amaterno" placeholder="Escribe tu apellido materno">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="id_personaje">Personaje</label>
+                                <select class="form-control select" name="id_personaje" id="id_personaje">
+                                    <option value="0">---Seleccionar---</option>
+                                    @foreach($personajes as $personaje)
+                                    <option>{{$personaje->nombre}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="nickname">Nickname / Username</label>
+                                <input type="text" class="form-control" id="nickname" placeholder="Escribe tu nombre de usuario">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="password">Contraseña</label>
+                                <input type="password" class="form-control" id="password" placeholder="Escribe una contraseña">
+                            </div>
+                        </div>
+                        <div class="col-sm-6" hidden>
+                            <div class="form-group">
+                                <label for="id_carrera">Carrera</label>
+                                <select name="id_carrera" id="id_carrera">
+                                    <option value="1" selected></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6" hidden>
+                            <div class="form-group">
+                                <label for="id_escuela">Escuela</label>
+                                <select name="id_escuela" id="id_escuela">
+                                    <option value="1" selected></option>
+                                </select>
                             </div>
                         </div>
                     </div>

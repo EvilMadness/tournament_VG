@@ -17,15 +17,15 @@
     <!-- CSS Files -->
     <link href="{{asset('./assets/css/now-ui-kit.css?v=1.2.0')}}" rel="stylesheet" />
     <link href="{{asset('./assets/css/bootstrap.min.css')}}" rel="stylesheet" />
+    <script src="{{asset('./assets/js/now-ui-kit.js')}}" type="text/javascript"></script>
 
     <script src="{{asset('./assets/js/sweetalert2.all.js')}}" type="text/javascript"></script>
     <script src="{{asset('./assets/js/sweetalert2.js')}}" type="text/javascript"></script>
-    <script src="{{asset('./assets/js/message_methods.js')}}" type="text/javascript"></script>
     <script src="{{asset('./assets/js/general_methods.js')}}" type="text/javascript"></script>
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 </head>
 <body class="@yield('type')" >
-<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg bg-success" color-on-scroll="100" id="sectionsNav">
+<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg bg-success2" color-on-scroll="100" id="sectionsNav">
     <div class="container">
         <div class="navbar-translate">
             <a class="navbar-brand" href="/">
@@ -216,21 +216,25 @@
             &copy;
             <script>
                 document.write(new Date().getFullYear())
-            </script> <a href="http://www.valles.udg.mx/" target="_blank">CUValles</a>
+            </script> <a href="http://www.google.com/" target="_blank">DynaDevs</a>
         </div>
     </div>
 </footer>
 <!--   Core JS Files   -->
 <script src="{{asset('../assets/js/core/jquery.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('../assets/js/core/popper.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('../assets/js/core/bootstrap-material-design.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('../assets/js/plugins/moment.min.js')}}"></script>
+<script src="{{asset('../assets/js/core/bootstrap.min.js')}}" type="text/javascript"></script>
 <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
 <script src="{{asset('../assets/js/plugins/bootstrap-datetimepicker.js')}}" type="text/javascript"></script>
 <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
 <script src="{{asset('../assets/js/plugins/nouislider.min.js')}}" type="text/javascript"></script>
 <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-<script src="{{asset('../assets/js/material-kit.js?v=2.0.3')}}" type="text/javascript"></script>
+<script src="{{asset('../assets/js/now-ui-kit.js?v=1.2.0')}}" type="text/javascript"></script>
+<script>
+    $(document).ready(function(){
+        $('.myTip').tooltip()
+    });
+</script>
 
 </body>
 </html>

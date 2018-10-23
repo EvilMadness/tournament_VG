@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Concursante;
+use App\Personaje;
 use Illuminate\Http\Request;
 
 class ConcursanteController extends Controller
@@ -26,7 +27,9 @@ class ConcursanteController extends Controller
      */
     public function create()
     {
-        //
+        $personajes = Personaje::all();
+        $title = "Registrar nuevo concursante";
+        return view('concursante.add',compact('personajes','title'));
     }
 
     /**
@@ -37,7 +40,7 @@ class ConcursanteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
