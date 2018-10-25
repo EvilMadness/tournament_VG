@@ -40,7 +40,7 @@
                         <td>{{$escuela->municipio}}</td>
                         <td>
                             <form id="" action="" method="POST">
-                                <a href='{{route('carrera.edit', $escuela->id)}}'>
+                                <a href='{{route('escuela.edit', $escuela->id)}}'>
                                 <button type="button" rel="tooltip" class="btn btn-success btn-fab btn-round" data-toggle="tooltip" data-placement="top" title="Editar"><i class="now-ui-icons ui-2_settings-90"></i></button>
                                 </a>
                                 <input name="_method" type="hidden" value="DELETE">

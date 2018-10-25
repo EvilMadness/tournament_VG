@@ -15,24 +15,24 @@
     <div class="container">
         <div class="section text-center">
             <div class="col-md-8 ml-auto mr-auto">
-                <form id="form" class="form-horizontal" name="form_busqueda" action="{{route('concursante.store')}}" method="post" entype="application/x-www-form-urlencoded">
+                <form id="form" class="form-horizontal" name="form_busqueda" action="{{route('concursante.update')}}" method="post" entype="application/x-www-form-urlencoded">
                     <div class="row text-left">
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="nombre">Nombre(s)</label>
-                                <input type="text" class="form-control" name="nombre" placeholder="Escribe tu nombre">
+                                <input type="text" class="form-control" id="nombre" placeholder="Escribe tu nombre" value="$concursantes->$nombre">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="apaterno">Apellido Paterno</label>
-                                <input type="text" class="form-control" name="apaterno" placeholder="Escribe tu apellido paterno">
+                                <input type="text" class="form-control" id="apaterno" placeholder="Escribe tu apellido paterno" value="$concursantes->$apaterno">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="amaterno">Apellido Materno</label>
-                                <input type="text" class="form-control" name="amaterno" placeholder="Escribe tu apellido materno">
+                                <input type="text" class="form-control" id="amaterno" placeholder="Escribe tu apellido materno" value="$concursantes->$amaterno">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -49,16 +49,10 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="nickname">Nickname / Username</label>
-                                <input type="text" class="form-control" name="nickname" placeholder="Escribe tu nombre de usuario">
+                                <input type="text" class="form-control" id="nickname" placeholder="Escribe tu nombre de usuario" value="$concursantes->$nickname">
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="password">Contraseña</label>
-                                <input type="password" class="form-control" name="password" placeholder="Escribe una contraseña">
-                            </div>
-                        </div>
-                        <div class="col-sm-6" >
                             <div class="form-group">
                                 <label for="id_carrera">Carrera</label>
                                 <select name="id_carrera" id="id_carrera">
@@ -66,7 +60,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-sm-6" >
+                        <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="id_escuela">Escuela</label>
                                 <select name="id_escuela" id="id_escuela">

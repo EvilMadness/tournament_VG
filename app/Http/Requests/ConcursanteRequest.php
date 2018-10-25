@@ -13,7 +13,7 @@ class ConcursanteRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,20 @@ class ConcursanteRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre' => 'required|string|max:50',
+            'apaterno' => 'required|string|max:45',
+            'amaterno' => 'required|string|max:45',
+            'email' => 'required|string|max:50',
+            'nickname' => 'required|string|max:45',
+            'password' => 'required|string|max:100',
+            'id_carrera' => 'required|int|max:50',
         ];
     }
+    public function messages()
+    {
+        return [
+            'required' => 'El campo no puede quedar vacio',
+        ];
+    }
+
 }

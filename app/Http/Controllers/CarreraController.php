@@ -39,6 +39,7 @@ class CarreraController extends Controller
      */
     public function store(CarreraRequest $request)
     {
+        dd($request);
         Carrera::create($request->all());
         toast('¡Carrera agregada correctamente!', 'success', 'top');
         return redirect('carrera');
@@ -63,7 +64,9 @@ class CarreraController extends Controller
      */
     public function edit($id)
     {
-        //
+        $carreras = Carrera::findOrFail($id);
+        $title = 'Editar carrera';
+        return view('carrera.add', compact('carreras', 'title'));
     }
 
     /**
@@ -73,9 +76,11 @@ class CarreraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CarreraRequest $request, $id)
     {
-        //
+        $carreras = Carrera::findOrFail($id);
+        $carreras->update($request->all());
+        return redirect('carrera')->with('alert', 'Carrera actualizada correctamente.');
     }
 
     /**

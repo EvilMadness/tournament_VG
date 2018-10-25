@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Escuela;
+use App\Http\Requests\EscuelaRequest;
 use Illuminate\Http\Request;
 
 class EscuelaController extends Controller
@@ -15,7 +16,7 @@ class EscuelaController extends Controller
     public function index()
     {
         $escuelas = Escuela::all();
-        $title = "Instituciones";
+        $title = "Instituciones educativas";
         return view('institucion.index', compact('escuelas', 'title'));
     }
 
@@ -26,7 +27,8 @@ class EscuelaController extends Controller
      */
     public function create()
     {
-        //
+        $title = "Nueva institución educativa";
+        return view('escuela.add',compact('title'));
     }
 
     /**
@@ -35,9 +37,11 @@ class EscuelaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EscuelaRequest $request)
     {
-        //
+        Escuela::create($request->all());
+        toast('¡Escuela agregada correctamente!', 'success', 'top');
+        return redirect('escuela');
     }
 
     /**
@@ -59,7 +63,9 @@ class EscuelaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $escuelas = Escuela::findOrFail($id);
+        $title = 'Editar institución educativa';
+        return view('institucion.add', compact('escuelas', 'title'));
     }
 
     /**
@@ -69,9 +75,11 @@ class EscuelaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EscuelaRequest $request, $id)
     {
-        //
+        $escuelas = Escuela::findOrFail($id);
+        $escuelas->update($request->all());
+        return redirect('escuela')->with('alert', 'Institución actualizada correctamente.');
     }
 
     /**

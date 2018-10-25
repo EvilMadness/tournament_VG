@@ -13,4 +13,9 @@ class Escuela extends Model
 
     protected $hidden = ['id'];
     public $timestamps = false;
+
+    public function concursante(){
+        return $this->belongsTo(Escuela::class, 'id', 'id_escuela');
+    }
+
 }

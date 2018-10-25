@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Concursante;
+use App\Http\Requests\ConcursanteRequest;
 use App\Personaje;
 use Illuminate\Http\Request;
 
@@ -38,9 +39,12 @@ class ConcursanteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ConcursanteRequest $request)
     {
         dd($request);
+        Concursante::create($request->all());
+        toast('¡Concursante registrado correctamente!', 'success', 'top');
+        return redirect('concursante');
     }
 
     /**

@@ -22,7 +22,7 @@
             @endif
             <div>
                 @isset($concursantes)
-                @if($concursantes == "0")
+                @if($concursantes)
                 <table class="table">
                     <thead>
                     <tr>

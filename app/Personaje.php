@@ -13,4 +13,8 @@ class Personaje extends Model
 
     protected $hidden = ['id'];
     public $timestamps = false;
+
+    public function concursante(){
+        return $this->belongsTo(Personaje::class, 'id', 'id_personaje');
+    }
 }

@@ -13,7 +13,7 @@ class EscuelaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class EscuelaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre' => 'required|string|max:50',
+            'municipio' => 'required|string|max:45',
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'required' => 'El campo no puede quedar vacio',
         ];
     }
 }

@@ -15,16 +15,22 @@
     <div class="container">
         <div class="section text-center">
             <div class="col-md-8 ml-auto mr-auto">
-                <form id="form" class="form-horizontal" name="form_busqueda" action="@if(@empty($carreras)) {{ route('carrera.store')}} @else {{route('carrera.update', $carreras->id)}} @endif" method="post" entype="application/x-www-form-urlencoded">
-                    @if(@empty($carreras))
+                <form id="form" class="form-horizontal" name="form_busqueda" action="@if(@empty($escuelas)) {{ route('escuela.store')}} @else {{route('escuela.update', $escuelas->id)}} @endif" method="post" entype="application/x-www-form-urlencoded">
+                    @if(@empty($escuelas))
                     @else
                         {{method_field('PUT')}}
                     @endif
                     <div class="row text-left">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label for="nombre">Nombre de la carrera</label>
-                                <input type="text" class="form-control" name="nombre" placeholder="Escribe el nombre de la carrera" value="{{$carreras->nombre}}">
+                                <label for="nombre">Nombre de la institución</label>
+                                <input type="text" class="form-control" name="nombre" placeholder="Escribe el nombre de la institución eduactiva" value="{{$escuelas->nombre}}">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="municipio">Municipio</label>
+                                <input type="text" class="form-control" name="municipio" placeholder="Escribe el nombre del municipio" value="{{$escuelas->municipio}}">
                             </div>
                         </div>
                     </div>

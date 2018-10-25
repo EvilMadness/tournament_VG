@@ -13,6 +13,10 @@ class Carrera extends Model
 
     protected $hidden = ['id'];
     public $timestamps = false;
+
+    public function concursante(){
+        return $this->belongsTo(Concursante::class, 'id', 'id_carrera');
+    }
 }
 
 
