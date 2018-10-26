@@ -24,7 +24,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="nombre">Nombre de la carrera</label>
-                                <input type="text" class="form-control" name="nombre" placeholder="Escribe el nombre de la carrera" value="{{$carreras->nombre}}">
+                                <input type="text" class="form-control" name="nombre" placeholder="Escribe el nombre de la carrera" value="@if(!@empty($carreras)) {{$carreras->nombre}} @endif">
                             </div>
                         </div>
                     </div>

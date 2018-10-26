@@ -24,13 +24,13 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="nombre">Nombre de la institución</label>
-                                <input type="text" class="form-control" name="nombre" placeholder="Escribe el nombre de la institución eduactiva" value="{{$escuelas->nombre}}">
+                                <input type="text" class="form-control" name="nombre" placeholder="Escribe el nombre de la institución eduactiva" value="@if(!@empty($escuelas)) {{$escuelas->nombre}} @endif">
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="municipio">Municipio</label>
-                                <input type="text" class="form-control" name="municipio" placeholder="Escribe el nombre del municipio" value="{{$escuelas->municipio}}">
+                                <input type="text" class="form-control" name="municipio" placeholder="Escribe el nombre del municipio" value="@if(!@empty($escuelas)) {{$escuelas->municipio}} @endif">
                             </div>
                         </div>
                     </div>

@@ -9,7 +9,7 @@ class Concursante extends Model
     protected $table = 'concursante';
     protected $primaryKey = 'id';
 
-    protected $fillable = ['nombre', 'apaterno', 'amaterno', 'email', 'nickname', 'password'];
+    protected $fillable = ['nombre', 'apaterno', 'amaterno', 'email', 'nickname', 'password','id_carrera','id_personaje','id_escuela'];
 
     protected $hidden = ['id'];
     public $timestamps = false;

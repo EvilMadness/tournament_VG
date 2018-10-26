@@ -39,7 +39,6 @@ class CarreraController extends Controller
      */
     public function store(CarreraRequest $request)
     {
-        dd($request);
         Carrera::create($request->all());
         toast('¡Carrera agregada correctamente!', 'success', 'top');
         return redirect('carrera');

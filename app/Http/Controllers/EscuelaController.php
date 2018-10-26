@@ -28,7 +28,7 @@ class EscuelaController extends Controller
     public function create()
     {
         $title = "Nueva institución educativa";
-        return view('escuela.add',compact('title'));
+        return view('institucion.add',compact('title'));
     }
 
     /**

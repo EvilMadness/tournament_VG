@@ -41,7 +41,7 @@
                                 <select class="form-control select" name="id_personaje" id="id_personaje">
                                     <option value="0">---Seleccionar---</option>
                                     @foreach($personajes as $personaje)
-                                    <option>{{$personaje->nombre}}</option>
+                                    <option value="{{$personaje->id}}">{{$personaje->nombre}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -58,19 +58,31 @@
                                 <input type="password" class="form-control" name="password" placeholder="Escribe una contraseña">
                             </div>
                         </div>
-                        <div class="col-sm-6" >
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="email">Email / Correo electronico</label>
+                                <input type="email" class="form-control" name="email" placeholder="Escribe una direccion de correo electronico">
+                            </div>
+                        </div>
+                        <div class="col-sm-6" hidden>
                             <div class="form-group">
                                 <label for="id_carrera">Carrera</label>
                                 <select name="id_carrera" id="id_carrera">
                                     <option value="1" selected></option>
+                                    @foreach($carreras as $carrera)
+                                    <option value="{{$carrera->id}}" selected>{{$carrera->nombre}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
-                        <div class="col-sm-6" >
+                        <div class="col-sm-6" hidden>
                             <div class="form-group">
                                 <label for="id_escuela">Escuela</label>
                                 <select name="id_escuela" id="id_escuela">
                                     <option value="1" selected></option>
+                                    @foreach($escuelas as $escuela)
+                                    <option value="{{$escuela->id}}" selected>{{$escuela->nombre}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

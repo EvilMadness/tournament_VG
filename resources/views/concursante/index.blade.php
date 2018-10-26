@@ -36,7 +36,10 @@
                     <tbody>
                     @foreach ($concursantes as $concursante)
                     <tr>
-                        <td>{{$concursante->id}}</td>
+                        <td>{{$concursante->nickname}}</td>
+                        {{dd($concursante->personaje)}}
+                        <td>{{$concursante->personaje}}</td>
+                        <td>{{$concursante->email}}</td>
                         <td>{{$concursante->nombre}}</td>
                         <td>
                             <form id="" action="" method="POST">

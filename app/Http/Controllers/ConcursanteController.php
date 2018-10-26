@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Carrera;
 use App\Concursante;
+use App\Escuela;
 use App\Http\Requests\ConcursanteRequest;
 use App\Personaje;
 use Illuminate\Http\Request;
@@ -16,7 +18,7 @@ class ConcursanteController extends Controller
      */
     public function index()
     {
-        $concursantes = Concursante::all();
+        $concursantes = Concursante::with('personaje')->get();
         $title = "Concursantes";
         return view('concursante.index', compact('concursantes', 'title'));
     }
@@ -29,8 +31,10 @@ class ConcursanteController extends Controller
     public function create()
     {
         $personajes = Personaje::all();
+        $carreras = Carrera::all();
+        $escuelas = Escuela::all();
         $title = "Registrar nuevo concursante";
-        return view('concursante.add',compact('personajes','title'));
+        return view('concursante.add',compact('personajes','carreras', 'escuelas', 'title'));
     }
 
     /**
@@ -41,7 +45,6 @@ class ConcursanteController extends Controller
      */
     public function store(ConcursanteRequest $request)
     {
-        dd($request);
         Concursante::create($request->all());
         toast('¡Concursante registrado correctamente!', 'success', 'top');
         return redirect('concursante');
