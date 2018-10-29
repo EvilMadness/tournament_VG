@@ -29,7 +29,7 @@ class ConcursanteRequest extends FormRequest
             'amaterno' => 'required|string|max:45',
             'email' => 'required|string|max:50',
             'nickname' => 'required|string|max:45',
-            'password' => 'required|string|max:100',
+            'password' => 'string|max:100',
             'id_carrera' => 'required|int|max:50',
         ];
     }

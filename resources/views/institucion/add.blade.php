@@ -15,7 +15,7 @@
     <div class="container">
         <div class="section text-center">
             <div class="col-md-8 ml-auto mr-auto">
-                <form id="form" class="form-horizontal" name="form_busqueda" action="@if(@empty($escuelas)) {{ route('escuela.store')}} @else {{route('escuela.update', $escuelas->id)}} @endif" method="post" entype="application/x-www-form-urlencoded">
+                <form id="form" class="form-horizontal" name="form_busqueda" action="@if(@empty($escuelas)) {{ route('escuela.store')}} @else {{route('escuela.update', $escuelas->id)}} @endif" method="post" entype="application/x-www-form-urlencoded" onsubmit="disable('submit')">
                     @if(@empty($escuelas))
                     @else
                         {{method_field('PUT')}}

@@ -2,6 +2,7 @@
 @section('title', 'Torneo Smash')
 @section('type', 'signup-page sidebar-collapse')
 @section('content')
+@include('sweetalert::alert')
 <div class="wrapper">
     <div class="page-header clear-filter" filter-color="dark-red">
         <div class="page-header-image" data-parallax="true" style="background-image:url('./assets/img/SmashBros1.jpg');">

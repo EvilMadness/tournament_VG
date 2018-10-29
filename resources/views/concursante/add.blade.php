@@ -15,7 +15,7 @@
     <div class="container">
         <div class="section text-center">
             <div class="col-md-8 ml-auto mr-auto">
-                <form id="form" class="form-horizontal" name="form_busqueda" action="{{route('concursante.store')}}" method="post" entype="application/x-www-form-urlencoded">
+                <form id="form" class="form-horizontal" name="form_busqueda" action="{{route('concursante.store')}}" method="post" entype="application/x-www-form-urlencoded" onsubmit="disable('submit')">
                     <div class="row text-left">
                         <div class="col-sm-6">
                             <div class="form-group">
@@ -38,7 +38,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="id_personaje">Personaje</label>
-                                <select class="form-control select" name="id_personaje" id="id_personaje">
+                                <select class="form-control" name="id_personaje" id="id_personaje">
                                     <option value="0">---Seleccionar---</option>
                                     @foreach($personajes as $personaje)
                                     <option value="{{$personaje->id}}">{{$personaje->nombre}}</option>
@@ -56,6 +56,9 @@
                             <div class="form-group">
                                 <label for="password">Contraseña</label>
                                 <input type="password" class="form-control" name="password" placeholder="Escribe una contraseña">
+                                <small id="passwordHelpBlock" class="form-text text-info">
+                                    Su contraseña debe tener una longitud de 8 a 20 caracteres, contener letras y números, y no debe contener espacios, caracteres especiales o emoji.
+                                </small>
                             </div>
                         </div>
                         <div class="col-sm-12">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PersonajeRequest;
 use App\Personaje;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,8 @@ class PersonajeController extends Controller
      */
     public function create()
     {
-        //
+        $title = "Nuevo personaje";
+        return view('personaje.add',compact('title'));
     }
 
     /**
@@ -35,9 +37,11 @@ class PersonajeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PersonajeRequest $request)
     {
-        //
+        Personaje::create($request->all());
+        toast('¡Personaje agregado correctamente!', 'success', 'top');
+        return redirect('personaje');
     }
 
     /**
@@ -59,7 +63,9 @@ class PersonajeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $personajes = Personaje::findOrFail($id);
+        $title = 'Editar personaje de juego';
+        return view('personaje.add', compact('personajes', 'title'));
     }
 
     /**
@@ -69,9 +75,11 @@ class PersonajeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PersonajeRequest $request, $id)
     {
-        //
+        $personajes = Personaje::findOrFail($id);
+        $personajes->update($request->all());
+        return redirect('personaje')->with('alert', 'Personaje actualizado correctamente.');
     }
 
     /**
@@ -82,6 +90,9 @@ class PersonajeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $personajes = Personaje::findOrFail($id);
+        $personajes->delete();
+        toast('¡Personaje eliminado exitosamente!', 'success', 'top');
+        return redirect('personaje');
     }
 }

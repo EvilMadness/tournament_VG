@@ -90,6 +90,9 @@ class CarreraController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $carreras = Carrera::findOrFail($id);
+        $carreras->delete();
+        toast('¡Carrera eliminada exitosamente!', 'success', 'top');
+        return redirect('carrera');
     }
 }

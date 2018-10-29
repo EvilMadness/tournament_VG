@@ -2,7 +2,7 @@
 @section('title', $title)
 @section('type', 'index-page sidebar-collapse')
 @section('content')
-
+@include('sweetalert::alert')
 <div id="modal"></div>
 {{-- Titulo o encabezado --}}
 <div class="page-header page-header-small-tiny header-filter clear-filter" data-parallax="true" style="background-image: url('{{asset('./assets/img/black.jpg')}}');"  >
@@ -43,14 +43,18 @@
                         <td>{{$carrera->id}}</td>
                         <td>{{$carrera->nombre}}</td>
                         <td>
-                            <form id="" action="" method="POST">
+                            <form id="delete_form_{{ $carrera->id }}" action="{{ route('carrera.destroy' , $carrera->id)}}" method="POST"
+                                  onsubmit="return deleteElement(
+                                      '{{$carrera->nombre}}.',
+                                      'Será eliminado. ¿Está seguro?',
+                                      'delete_form_{{ $carrera->id }}',
+                                      event);">
                                 <a href='{{route('carrera.edit', $carrera->id)}}'>
                                 <button type="button" rel="tooltip" class="btn btn-success btn-fab btn-round" data-toggle="tooltip" data-placement="top" title="Editar"><i class="now-ui-icons ui-2_settings-90"></i></button>
                                 </a>
                                 <input name="_method" type="hidden" value="DELETE">
                                 {{ csrf_field() }}
                                 <button type="submit" class="btn btn-danger btn-fab btn-round" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="now-ui-icons ui-1_simple-remove"></i></button>
-
                             </form>
                         </td>
                     </tr>

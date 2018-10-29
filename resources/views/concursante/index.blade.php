@@ -2,7 +2,7 @@
 @section('title', $title)
 @section('type', 'index-page sidebar-collapse')
 @section('content')
-
+@include('sweetalert::alert')
 <div id="modal"></div>
 {{-- Titulo o encabezado --}}
 <div class="page-header page-header-small-tiny header-filter clear-filter" data-parallax="true" style="background-image: url('{{asset('./assets/img/black.jpg')}}');"  >
@@ -28,7 +28,7 @@
                     <tr>
                         <th class="text-center">Nickname</th>
                         <th class="text-center">Personaje</th>
-                        <th class="text-center">Correo</th>
+
                         <th class="text-center">Nombre</th>
                         <th class="text-center">Acciones</th>
                     </tr>
@@ -37,13 +37,21 @@
                     @foreach ($concursantes as $concursante)
                     <tr>
                         <td>{{$concursante->nickname}}</td>
-                        {{dd($concursante->personaje)}}
-                        <td>{{$concursante->personaje}}</td>
-                        <td>{{$concursante->email}}</td>
+                        <td>{{$concursante->personaje->nombre}}</td>
+
                         <td>{{$concursante->nombre}}</td>
+
                         <td>
-                            <form id="" action="" method="POST">
-                                <a href='{{route('carrera.edit', $concursante->id)}}'>
+                            <form id="delete_form_{{ $concursante->id }}" action="{{ route('concursante.destroy' , $concursante->id)}}" method="POST"
+                                  onsubmit="return deleteElement(
+                                      'Concursante {{$concursante->nombre}}.',
+                                      'Será eliminado. ¿Está seguro?',
+                                      'delete_form_{{ $concursante->id }}',
+                                      event);">
+                                <a href='{{route('concursante.show', $concursante->id)}}'>
+                                <button type="button" class="btn btn-info btn-fab btn-round"  data-toggle="tooltip" data-placement="top" title="Detalles"><i class="now-ui-icons ui-1_calendar-60"></i></button>
+                                </a>
+                                <a href='{{route('concursante.edit', $concursante->id)}}'>
                                 <button type="button" rel="tooltip" class="btn btn-success btn-fab btn-round" data-toggle="tooltip" data-placement="top" title="Editar"><i class="now-ui-icons ui-2_settings-90"></i></button>
                                 </a>
                                 <input name="_method" type="hidden" value="DELETE">

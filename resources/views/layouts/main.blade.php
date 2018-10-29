@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('./assets/img/apple-icon.png')}}">
-    <link rel="icon" type="image/png" href="{{asset('./assets/img/favicon.png')}}">
+    <link rel="icon" type="image/png" href="{{asset('./assets/img/SmashLogo.png')}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <!-- sirve para mandar los token en el header -->
@@ -22,6 +22,7 @@
     <script src="{{asset('./assets/js/sweetalert2.all.js')}}" type="text/javascript"></script>
     <script src="{{asset('./assets/js/sweetalert2.js')}}" type="text/javascript"></script>
     <script src="{{asset('./assets/js/general_methods.js')}}" type="text/javascript"></script>
+    <script src="{{asset('./assets/js/messages_methods.js')}}" type="text/javascript"></script>
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 </head>
 <body class="@yield('type')" >

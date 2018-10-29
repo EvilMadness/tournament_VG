@@ -17,14 +17,14 @@ class Concursante extends Model
 
     public function carrera()
     {
-        return $this->hasMany(Carrera::class, 'id', 'id_carrera');
+        return $this->hasOne(Carrera::class, 'id', 'id_carrera');
     }
     public function escuela()
     {
-        return $this->hasMany(Escuela::class, 'id', 'id_escuela');
+        return $this->hasOne(Escuela::class, 'id', 'id_escuela');
     }
     public function personaje()
     {
-        return $this->hasMany(Personaje::class, 'id', 'id_personaje');
+        return $this->hasOne(Personaje::class, 'id', 'id_personaje');
     }
 }

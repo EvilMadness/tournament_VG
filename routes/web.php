@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::resource('user','UserController');
 Route::resource('carrera','CarreraController');
 Route::resource('concursante','ConcursanteController');
 Route::resource('escuela','EscuelaController');

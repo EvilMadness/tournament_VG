@@ -2,7 +2,7 @@
 @section('title', $title)
 @section('type', 'index-page sidebar-collapse')
 @section('content')
-
+@include('sweetalert::alert')
 <div id="modal"></div>
 {{-- Titulo o encabezado --}}
 <div class="page-header page-header-small-tiny header-filter clear-filter" data-parallax="true" style="background-image: url('{{asset('./assets/img/black.jpg')}}');"  >
@@ -39,7 +39,12 @@
                         <td>{{$escuela->nombre}}</td>
                         <td>{{$escuela->municipio}}</td>
                         <td>
-                            <form id="" action="" method="POST">
+                            <form id="delete_form_{{ $escuela->id }}" action="{{ route('escuela.destroy' , $escuela->id)}}" method="POST"
+                                  onsubmit="return deleteElement(
+                                      '{{$escuela->nombre}}.',
+                                      'Será eliminado. ¿Está seguro?',
+                                      'delete_form_{{ $escuela->id }}',
+                                      event);">
                                 <a href='{{route('escuela.edit', $escuela->id)}}'>
                                 <button type="button" rel="tooltip" class="btn btn-success btn-fab btn-round" data-toggle="tooltip" data-placement="top" title="Editar"><i class="now-ui-icons ui-2_settings-90"></i></button>
                                 </a>

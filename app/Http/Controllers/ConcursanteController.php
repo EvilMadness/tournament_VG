@@ -58,7 +58,11 @@ class ConcursanteController extends Controller
      */
     public function show($id)
     {
-        //
+        $concursantes = Concursante::with('carrera','escuela','personaje')->findOrFail($id);
+        //dd($concursantes);
+        //$mensajes = $concursante->mensajes()->paginate(5);
+        $title = "Detalles usuario";
+        return view('concursante.profile', compact('concursantes','title'));
     }
 
     /**
@@ -69,7 +73,12 @@ class ConcursanteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $concursantes = Concursante::findOrFail($id);
+        $personajes = Personaje::all();
+        $carreras = Carrera::all();
+        $escuelas = Escuela::all();
+        $title = 'Editar concursante';
+        return view('concursante.edit', compact('concursantes','personajes', 'carreras', 'escuelas', 'title'));
     }
 
     /**
@@ -79,9 +88,11 @@ class ConcursanteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ConcursanteRequest $request, $id)
     {
-        //
+        $concursantes = Concursante::findOrFail($id);
+        $concursantes->update($request->all());
+        return redirect('concursante')->with('alert', 'Concursante actualizado correctamente.');
     }
 
     /**
@@ -92,6 +103,9 @@ class ConcursanteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $concursantes = Concursante::findOrFail($id);
+        $concursantes->delete();
+        toast('¡Concursante eliminado exitosamente!', 'success', 'top');
+        return redirect('concursante');
     }
 }

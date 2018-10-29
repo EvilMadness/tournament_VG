@@ -7,7 +7,7 @@
 <div class="page-header page-header-small-tiny header-filter clear-filter" data-parallax="true" style="background-image: url('{{asset('./assets/img/black.jpg')}}');" >
     <div class="container">
         <div class="row">
-            <h1 style="font-family: Roboto" class="title">{{$title}}</h1>
+            <h1 class="title">{{$title}}</h1>
         </div>
     </div>
 </div>
@@ -15,7 +15,7 @@
     <div class="container">
         <div class="section text-center">
             <div class="col-md-8 ml-auto mr-auto">
-                <form id="form" class="form-horizontal" name="form_busqueda" action="@if(@empty($carreras)) {{ route('carrera.store')}} @else {{route('carrera.update', $carreras->id)}} @endif" method="post" entype="application/x-www-form-urlencoded">
+                <form id="form" class="form-horizontal" name="form_busqueda" action="@if(@empty($carreras)) {{ route('carrera.store')}} @else {{route('carrera.update', $carreras->id)}} @endif" method="post" entype="application/x-www-form-urlencoded" onsubmit="disable('submit')">
                     @if(@empty($carreras))
                     @else
                         {{method_field('PUT')}}

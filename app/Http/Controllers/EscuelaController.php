@@ -90,6 +90,9 @@ class EscuelaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $escuelas = Escuela::findOrFail($id);
+        $escuelas->delete();
+        toast('¡Escuela eliminada exitosamente!', 'success', 'top');
+        return redirect('escuela');
     }
 }

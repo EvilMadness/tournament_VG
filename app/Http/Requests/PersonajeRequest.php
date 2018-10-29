@@ -13,7 +13,7 @@ class PersonajeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class PersonajeRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre' => 'required|string|max:45',
+            'descripcion' => 'required|string|max:150',
+            'imagen' => 'required|string|max:45',
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'required' => 'El campo no puede quedar vacio',
         ];
     }
 }

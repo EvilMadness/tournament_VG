@@ -2,7 +2,7 @@
 @section('title', $title)
 @section('type', 'index-page sidebar-collapse')
 @section('content')
-
+@include('sweetalert::alert')
 <div id="modal"></div>
 {{-- Titulo o encabezado --}}
 <div class="page-header page-header-small-tiny header-filter clear-filter" data-parallax="true" style="background-image: url('{{asset('./assets/img/black.jpg')}}');"  >
@@ -29,14 +29,18 @@
                                 {{$personaje->nombre}}
                             </h1>
                         </div>
-                        <form action="" method="POST">
+                        <form id="delete_form_{{ $personaje->id }}" action="{{ route('personaje.destroy' , $personaje->id)}}" method="POST"
+                              onsubmit="return deleteElement(
+                                      '{{$personaje->nombre}}.',
+                                      'Será eliminado. ¿Está seguro?',
+                                      'delete_form_{{ $personaje->id }}',
+                                      event);">
+                            <a href='{{route('personaje.edit', $personaje->id)}}'>
+                            <button type="button" rel="tooltip" class="btn btn-success btn-fab btn-round" data-toggle="tooltip" data-placement="top" title="Editar"><i class="now-ui-icons ui-2_settings-90"></i></button>
+                            </a>
+                            <input name="_method" type="hidden" value="DELETE">
                             {{ csrf_field() }}
-                            <a href="{{route('personaje.edit', $personaje->id)}}">
-                                <button type="button" rel="tooltip" class="btn btn-success btn-fab btn-round" data-toggle="tooltip" data-placement="top" title="Editar"><i class="now-ui-icons ui-2_settings-90"></i></button>
-                            </a>
-                            <a href="{{route('personaje.destroy', $personaje->id)}}">
-                                <button type="button" rel="tooltip" class="btn btn-danger btn-fab btn-round" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="now-ui-icons ui-1_simple-remove"></i></button>
-                            </a>
+                            <button type="submit" class="btn btn-danger btn-fab btn-round" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="now-ui-icons ui-1_simple-remove"></i></button>
                         </form>
                     </div>
                 </div>
