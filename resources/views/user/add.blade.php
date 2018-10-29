@@ -2,7 +2,6 @@
 @section('title', $title)
 @section('type', 'index-page sidebar-collapse')
 @section('content')
-@include('sweetalert::alert')
 {{-- Titulo o encabezado --}}
 <div id="modal"></div>
 {{-- Titulo o encabezado --}}

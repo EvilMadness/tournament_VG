@@ -2,7 +2,6 @@
 @section('title', $title)
 @section('type', 'index-page sidebar-collapse')
 @section('content')
-@include('sweetalert::alert')
 <div id="modal"></div>
 {{-- Titulo o encabezado --}}
 <div class="page-header page-header-small-tiny header-filter clear-filter" data-parallax="true" style="background-image: url('{{asset('./assets/img/black.jpg')}}');"  >

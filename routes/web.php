@@ -14,8 +14,15 @@
 Route::get('/', function () {
     return view('index');
 });
-Route::resource('user','UserController');
+Route::get('/inicio', function () {
+    return view('auth.login2');
+});
+
 Route::resource('carrera','CarreraController');
+Route::resource('user','UserController');
 Route::resource('concursante','ConcursanteController');
 Route::resource('escuela','EscuelaController');
 Route::resource('personaje','PersonajeController');
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');

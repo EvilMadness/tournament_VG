@@ -18,12 +18,9 @@
     <link href="{{asset('./assets/css/now-ui-kit.css?v=1.2.0')}}" rel="stylesheet" />
     <link href="{{asset('./assets/css/bootstrap.min.css')}}" rel="stylesheet" />
     <script src="{{asset('./assets/js/now-ui-kit.js')}}" type="text/javascript"></script>
+    <link href="{{asset('./assets/demo/demo.css')}}" />
 
-    <script src="{{asset('./assets/js/sweetalert2.all.js')}}" type="text/javascript"></script>
-    <script src="{{asset('./assets/js/sweetalert2.js')}}" type="text/javascript"></script>
-    <script src="{{asset('./assets/js/general_methods.js')}}" type="text/javascript"></script>
-    <script src="{{asset('./assets/js/messages_methods.js')}}" type="text/javascript"></script>
-    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+
 </head>
 <body class="@yield('type')" >
 <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg bg-success2" color-on-scroll="100" id="sectionsNav">
@@ -231,6 +228,9 @@
 <script src="{{asset('../assets/js/plugins/nouislider.min.js')}}" type="text/javascript"></script>
 <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
 <script src="{{asset('../assets/js/now-ui-kit.js?v=1.2.0')}}" type="text/javascript"></script>
+<script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+<script src="{{asset('./assets/js/messages_methods.js')}}" type="text/javascript"></script>
+@include('sweetalert::alert')
 <script>
     $(document).ready(function(){
         $('.myTip').tooltip()

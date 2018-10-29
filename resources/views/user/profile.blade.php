@@ -2,7 +2,6 @@
 @section('title', $title)
 @section('type', 'profile-page sidebar-collapse')
 @section('content')
-@include('sweetalert::alert')
 <div class="wrapper">
     <div class="page-header page-header-small clear-filter" filter-color="dark-red">
         <div class="page-header-image" data-parallax="true" style="background-image: url('{{asset('./assets/img/black.jpg')}}');"></div>
